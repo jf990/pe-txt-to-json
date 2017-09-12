@@ -22,6 +22,7 @@ var convertFiles = function() {
     fileList.forEach(function(fileParameters) {
         var filePath = rootPath + fileParameters.filename + '.txt';
         var transformedProjectionObject = [];
+        var records = 0;
         csvtojson({
             noheader: false,
             trim: true,
@@ -38,6 +39,7 @@ var convertFiles = function() {
                     extent: [projectionObject.MinimumLatitude, projectionObject.MinimumLongitude, projectionObject.MaximumLatitude, projectionObject.MaximumLongitude],
                     accuracy: (typeof projectionObject.Accuracy !== 'undefined' ? projectionObject.Accuracy : "0")
                 };
+                records ++;
             })
             .on('done', function (readError) {
                 if (typeof readError !== 'undefined' && readError !== null) {
@@ -50,7 +52,7 @@ var convertFiles = function() {
                         }
                     });
                 }
-                console.log('completed ' + filePath);
+                console.log("completed " + filePath + " processed " + records + " records.");
             });
     });
 };

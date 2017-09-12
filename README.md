@@ -23,7 +23,7 @@ This initial version is a bit inflexible. Here's how it works:
 
  * Be sure to run `npm install`
 
- * To run the conversion, `npm run`
+ * To run the conversion, `npm run process`
 
-The converted files are placed in teh `data` folder with the same file name and a `.min.json` extension.
+The converted files are placed in the `data` folder with the same file name and a `.min.json` extension.
 
